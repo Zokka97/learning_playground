@@ -30,11 +30,38 @@
 # else:
 #     print("invalid")
 
-name = []
-name.append("Glenn")
-name.append("Rick")
-name.append("Michonne")
-name.append("Andrea")
-name.append("Carl")
-for namelist in name:
-    print(namelist, len(name))
+# Value Types: number, string, boolean
+# Collection Types: List, Array, Map
+
+# Let's create an Array
+names = []
+
+# Next, add values to the array...
+
+names.append("Glenn")
+# names = ["Glenn"]
+
+names.append("Rick")
+# names = ["Glenn", "Rick"]
+
+names.append("Michonne")
+names.append("Andrea")
+names.append("Carl")
+
+for name in names:
+    print(name)
+
+# Each element in an array has an "index",
+# and you can access the element by its index
+# using the "index operator" like so:
+# someArray[0]
+
+# So, let's loop again, and access the names using the index operator
+for i in range(0, len(names)):
+    print(f"Trying to access element @ index {i}")
+    name = names[i]
+    print(name)
+
+for i, name in enumerate(names):
+    print(f"Position {i} in the array...")
+    print(name)
