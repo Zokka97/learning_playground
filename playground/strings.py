@@ -7,6 +7,6 @@ b = "Bear"
 result = a < b
 
 print(
-  "Is the string %s < %s? %s" %
-  (a, b, result)
+    "Is the string %s < %s? %s" %
+    (a, b, result)
 )

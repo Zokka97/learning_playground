@@ -7,7 +7,7 @@ state = {
 }
 invalid = "Unrecognized input, please try again."
 game_running = True
-
+# False == "exit"
 print("Welcome to game! Please follow instructions.")
 
 # Game Loop
@@ -31,6 +31,8 @@ Select an attack:
     elif user_attack == "S":
         # process kick
         state["enemy_health"] -= random.randrange(40, 71)
+    elif user_attack == "exit":
+        not game_running
     else:
         # unrecognized input
         print(invalid)
@@ -41,10 +43,9 @@ Select an attack:
 # will be executed
     if state["player_health"] <= 0 or state["enemy_health"] <= 0:
         break
-if state["enemy_health"] <= 0:
-    print("You've won")
-elif state["player_health"] <= 0:
-    print("Game Over!")
+    continue
+print("Thanks for Playing!")
+
 """ 
 # TODO: handle edge-case where the user inputs upper/lower case values
       we want to accept both. We can do this by turning all user-input
