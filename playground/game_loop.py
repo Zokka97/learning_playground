@@ -96,5 +96,6 @@ NOTE: Use percent instead of whole number
 NOTE: Store player damage
 NOTE: If player damage is greater than 30 use soaring fire
 
-
+TODO: Copy enemy previous damage
+TODO: If player use "C" then enemy will attack using buhamut_attack
  """
