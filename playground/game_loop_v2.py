@@ -22,7 +22,7 @@ while game_status:
     enemy_attack = random.randrange(30, 90)
     enemy_attack_store = enemy_attack
     player_health -= enemy_attack
-print("Game Over!")
+print(f"Game Over! {player_health}")
 
 """
 NOTE: chatgpt just simply place the "enemy_attack = random.randrange(30, 90)"
