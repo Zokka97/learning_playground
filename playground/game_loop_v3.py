@@ -50,23 +50,12 @@ while True:
         if user_input in ["X", "Z", "C"]:
             state["player_turn"] += 1
         if state["player_previous_attack"] >= 100:
-            state["enemy_previous_attack"] = 100
+            state["enemy_previous_attack"] = 150
             state["player_health"] -= state["enemy_previous_attack"]
         else:
             state["player_health"] -= enemy_attack
             state["enemy_previous_attack"] = enemy_attack
         state["enemy_turn"] += 1
-    elif state["player_health"] <= 0:
-        user_input = input("""
-            Game Over!\n
-            Press Q to quit
-            Press S to Start a new game
-            > """).upper()
-        if user_input == "Q":
-            break
-        if user_input == "S":
-            state["player_health"] = 1000
-            state["enemy_health"] = 1000
     elif state["enemy_health"] <= 0:
         user_input = input("""
             You've Won!\n
@@ -78,6 +67,25 @@ while True:
         if user_input == "S":
             state["player_health"] = 1000
             state["enemy_health"] = 1000
+            state["enemy_turn"] = 0
+            state["player_turn"] = 0
+            state["enemy_previous_attack"] = 0
+            state["player_previous_attack"] = 0
+    elif state["player_health"] <= 0:
+        user_input = input("""
+            Game Over!\n
+            Press Q to quit
+            Press S to Start a new game
+            > """).upper()
+        if user_input == "Q":
+            break
+        if user_input == "S":
+            state["player_health"] = 1000
+            state["enemy_health"] = 1000
+            state["enemy_turn"] = 0
+            state["player_turn"] = 0
+            state["enemy_previous_attack"] = 0
+            state["player_previous_attack"] = 0
 print("""
     Thanks for playing!
     """)
