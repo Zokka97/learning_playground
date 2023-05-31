@@ -1,7 +1,8 @@
 # don't use the while loop only define function or other function
 # bad idea
 # while loop is important, idk why i did it but already started it. no turning back
-
+# forgot to add enemy attack to player
+import random
 # this is the dictionary area
 v_names = {
     "elder": "Village Elder:",
@@ -103,9 +104,88 @@ def convo_007():
 # this is the enemy area
 
 
-def enemy_001(flying_coconuts=100):
+def enemy_atk(attack=None):
+    woshh = random.randrange(50, 130)
+    brak = 30
+    attack = int(random.choices(woshh, brak))
+    return attack
 
-    # this is the store area
+
+def enemy_001():
+    x = input("Press x to attack:\n").lower
+    if not x or x:
+        if player_status["bullets"] < 2:
+            print("You've lost!")
+        elif player_status["bullets"] >= 2:
+            player_status["bullets"] -= 2
+            enemies["flying_coconuts"] -= 100
+    if enemies["flying_coconuts"] == 0:
+        print("You've won!")
+    player_status["health"] -= enemy_atk()
+
+
+def enemy_002():
+    x = input("Press x to attack:\n").lower
+    if not x or x:
+        if player_status["bullets"] < 4:
+            print("You've lost!")
+        elif player_status["bullets"] >= 4:
+            player_status["bullets"] -= 4
+            enemies["crawling_snakes"] -= 200
+    if enemies["crawling_snakes"] == 0:
+        print("You've won!")
+
+
+def enemy_003():
+    x = input("Press x to attack:\n").lower
+    if not x or x:
+        if player_status["bullets"] < 3:
+            print("You've lost!")
+        elif player_status["bullets"] >= 3:
+            player_status["bullets"] -= 3
+            enemies["four_legged_bird"] -= 150
+    if enemies["four_legged_bird"] == 0:
+        print("You've won!")
+
+
+def enemy_004():
+    x = input("Press x to attack:\n").lower
+    if not x or x:
+        if player_status["bullets"] < 4:
+            print("You've lost!")
+        elif player_status["bullets"] >= 4:
+            player_status["bullets"] -= 4
+            enemies["humongous_centipede"] -= 200
+    if enemies["humongous_centipede"] == 0:
+        print("You've won!")
+
+
+def enemy_005():
+    x = input("Press x to attack:\n").lower
+    if not x or x:
+        if player_status["bullets"] < 10:
+            print("You've lost!")
+        elif player_status["bullets"] >= 10:
+            player_status["bullets"] -= 10
+            enemies["howling_corns"] -= 500
+    if enemies["howling_corns"] == 0:
+        print("You've won!")
+
+
+# def enemy_001():
+#     while enemies["flying_coconuts"] != 0:
+#         x = input("Press x to attack:\n").lower
+#         if not x or x:
+#             if player_status["bullets"] < 2:
+#                 print("You've lost!")
+#                 print("You've earned 2 bullets")
+#                 player_status["bullets"] += 2
+#             elif player_status["bullets"] >= 2:
+#                 player_status["bullets"] -= 2
+#                 enemies["flying_coconuts"] -= 100
+#                 print("You've won!")
+
+# this is the store area
 
 
 def bullets():
@@ -150,9 +230,11 @@ def store():
 # restult_004 = convo_004()
 # convo_005(restult_004)
 # convo_006()
-store()
-convo_007()
-# NOTE: go in a linear pattern, choices matters
+# store()
+# convo_007()
+enemy_001()
+
+# NOTE: go in a linear pattern, [choices matters] not anymore
 
 """
 WHAT I'VE LEARNED:

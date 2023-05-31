@@ -13,21 +13,32 @@
 # print("Popped one element from list", l)
 # print()
 
-def fizz_buzz(input):
-    numbers = input % 3
-    if input == 3:
-        print("Fizz")
-    elif
-    elif
-    else
+# def fizz_buzz(input):
+#     numbers = input % 3
+#     if input == :
+#         print("Fizz")
+#     elif
+#     elif
+#     else
 
 
-# NOTE: 3 to the infinite is Fizz
-# NOTE: 5 to the infinite is Buzz
-# NOTE: divisible by 3 and 5 to the infinite is FizzBuzz
-# NOTE: else print input
-# NOTE: if remainder is integer then true
-# NOTE: if remainder is float then false
+# # NOTE: 3 to the infinite is Fizz
+# # NOTE: 5 to the infinite is Buzz
+# # NOTE: divisible by 3 and 5 to the infinite is FizzBuzz
+# # NOTE: else print input
+# # NOTE: if remainder is integer then true
+# # NOTE: if remainder is float then false
 
-for x in range(3, , 3):
-    print(x)
+# for x in range(3, , 3):
+#     print(x)
+import random
+
+
+def enemy_atk(attack=None):
+    woshh = random.randrange(50, 130)
+    brak = 30
+    attack = int(random.choices([woshh], [brak]))
+    return attack
+
+
+enemy_atk()
