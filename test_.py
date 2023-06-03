@@ -34,11 +34,14 @@
 import random
 
 
-def enemy_atk(attack=None):
-    woshh = random.randrange(50, 130)
+def enemy_atk():
+    woshh = 10                # random.randrange(50, 130)
     brak = 30
-    attack = int(random.choices([woshh], [brak]))
-    return attack
+    attack = [woshh, brak]
+    result = random.choices(attack)
+    return result
 
 
-enemy_atk()
+print(type(enemy_atk()[0]))
+list_of = [100]
+print(list_of)

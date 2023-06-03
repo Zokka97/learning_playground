@@ -6,7 +6,11 @@ import random
 # this is the dictionary area
 v_names = {
     "elder": "Village Elder:",
-
+    "person_1": "Violet:",
+    "person_2": "Ben:",
+    "person_3": "Gloria:",
+    "person_4": "Vincent:",
+    "person_5": "Ching:",
 }
 player_status = {
     "health": 300,
@@ -101,14 +105,37 @@ def convo_007():
             f"{v_names['elder']} You must kill all the monster to be able to exit the village")
         print(f"{v_names['elder']} Goodluck with your mission!")
 
-# this is the enemy area
+
+def convo_008():
+    x = input(">>> ").lower()
+    if not x or x:
+        print(f"{v_names['person_1']} Thanks for saving me mister!")
+    choice_1 = "No problem!"
+    choice_2 = "Get loss!"
+    print(f"""Press X for {choice_1}
+or Press Z for {choice_2}""")
+    x = choice_1
+    z = choice_2
+    x = input(">>> ").lower
+    if x == choice_1:
+        print(f"{v_names['person_1']} This us for you mister")
+        print("You've earned +2 bullets")
+        player_status["bullets"] += 2
+    elif x == choice_2:
+        print(f"{v_names['person_1']} Rude. Well thanks any way!")
+    else:
+        print("... bye!")
+        # this is the enemy area
 
 
-def enemy_atk(attack=None):
-    woshh = random.randrange(50, 130)
-    brak = 30
-    attack = int(random.choices(woshh, brak))
-    return attack
+def enemy_atk():
+    brak = random.randrange(50, 130)
+    attack = [30, brak]
+    result = random.choices(attack)
+    return result
+
+
+outcome = enemy_atk()[0]
 
 
 def enemy_001():
@@ -121,7 +148,8 @@ def enemy_001():
             enemies["flying_coconuts"] -= 100
     if enemies["flying_coconuts"] == 0:
         print("You've won!")
-    player_status["health"] -= enemy_atk()
+    player_status["health"] -= outcome
+    print("You're health", player_status["health"])
 
 
 def enemy_002():
@@ -134,6 +162,8 @@ def enemy_002():
             enemies["crawling_snakes"] -= 200
     if enemies["crawling_snakes"] == 0:
         print("You've won!")
+    player_status["health"] -= outcome
+    print("You're health", player_status["health"])
 
 
 def enemy_003():
@@ -146,6 +176,8 @@ def enemy_003():
             enemies["four_legged_bird"] -= 150
     if enemies["four_legged_bird"] == 0:
         print("You've won!")
+    player_status["health"] -= outcome
+    print("You're health", player_status["health"])
 
 
 def enemy_004():
@@ -158,6 +190,8 @@ def enemy_004():
             enemies["humongous_centipede"] -= 200
     if enemies["humongous_centipede"] == 0:
         print("You've won!")
+    player_status["health"] -= outcome
+    print("You're health", player_status["health"])
 
 
 def enemy_005():
@@ -170,6 +204,8 @@ def enemy_005():
             enemies["howling_corns"] -= 500
     if enemies["howling_corns"] == 0:
         print("You've won!")
+    player_status["health"] -= outcome
+    print("You're health", player_status["health"])
 
 
 # def enemy_001():
@@ -240,5 +276,5 @@ enemy_001()
 WHAT I'VE LEARNED:
 
 # def fuction will reset the parameters when you call the arguement.
-# 
+#
 """
