@@ -104,6 +104,7 @@ def convo_007():
         print(
             f"{v_names['elder']} You must kill all the monster to be able to exit the village")
         print(f"{v_names['elder']} Goodluck with your mission!")
+    x = input(">>> ")
 
 
 def convo_008():
@@ -114,22 +115,114 @@ def convo_008():
     choice_2 = "Get loss!"
     print(f"""Press X for {choice_1}
 or Press Z for {choice_2}""")
-    x = choice_1
-    z = choice_2
-    x = input(">>> ").lower
-    if x == choice_1:
+    x = input(">>> ").lower()
+    if x == "x":
         print(f"{v_names['person_1']} This us for you mister")
         print("You've earned +2 bullets")
         player_status["bullets"] += 2
-    elif x == choice_2:
+    elif x == "z":
         print(f"{v_names['person_1']} Rude. Well thanks any way!")
     else:
         print("... bye!")
+
+
+def convo_009():
+    x = input(">>> ").lower()
+    if not x or x:
+        print(
+            f"{v_names['person_2']} I-I... I thought I was dead. Thanks man, you're a lifesaver!")
+    choice_1 = "No problem!"
+    choice_2 = "Get loss!"
+    print(f"""Press X for {choice_1}
+or Press Z for {choice_2}""")
+    x = input(">>> ").lower()
+    if x == "x":
+        print(f"{v_names['person_2']} This us for you mister")
+        print("You've earned +50 health")
+        player_status["health"] += 50
+    elif x == "z":
+        print(f"{v_names['person_2']} Bring me home would yah!")
+    else:
+        print(f"{v_names['person_2']} Bring me home.")
         # this is the enemy area
 
 
+def convo_010():
+    x = input(">>> ").lower()
+    if not x or x:
+        print(f"{v_names['person_3']} A strong man with a gun...")
+    choice_1 = "No problem!"
+    choice_2 = "Get loss!"
+    print(f"""Press X for {choice_1}
+or Press Z for {choice_2}""")
+    x = input(">>> ").lower()
+    if x == "x":
+        print(
+            f"{v_names['person_3']} Did I say thank you? I could have handle that myself!")
+    elif x == "z":
+        print(f"{v_names['person_3']} Hot!!")
+        print("You've earned +5 bullets and a kiss")
+        player_status["bullets"] += 5
+    else:
+        print("...")
+
+
+def convo_011():
+    x = input(">>> ").lower()
+    if not x or x:
+        print(f"""{v_names['person_4']} Hahahaha, that's it,I could've shot that with one bullet.
+You're weak""")
+    choice_1 = "I've just save you're life"
+    choice_2 = "Get loss!"
+    print(f"""Press X for {choice_1}
+or Press Z for {choice_2}""")
+    x = input(">>> ").lower()
+    if x == "x":
+        print(
+            f"{v_names['person_4']} Hahahah, No you didn't. Here take this, bullets are just for the weak. Hahahaha")
+        print("You've earned +1 bullets")
+        player_status["bullets"] += 1
+    elif z == "z":
+        print(
+            f"{v_names['person_4']} Maybe you should. getta out of here. Hahahaha")
+    else:
+        print("HAHAHAHA, WEAK!!")
+
+
+def convo_012():
+    x = input(">>> ").lower()
+    if not x or x:
+        print(
+            f"{v_names['person_5']} Omg, I thought I'm gonna die. Th-thank you!")
+    choice_1 = "No problem!"
+    choice_2 = "Get loss!"
+    print(f"""Press X for {choice_1}
+or Press Z for {choice_2}""")
+    x = input(">>> ").lower()
+    if x == "x":
+        print(
+            f"{v_names['person_5']} To tell you the truth you're the strongest man in this village")
+        print("You've earned a useless amount of +9999 bullets +9999 health")
+        player_status["bullets"] += 9999
+        player_status["health"] += 9999
+    elif x == "z":
+        print(f"{v_names['person_5']} That is not cool at all!")
+    else:
+        print("Goodluck!")
+
+
+def convo_013():
+    x = input(">>> ").lower()
+    if x != "x" or x == "x":
+        print(f"{v_names['elder']} You did it, you've defeated all enemies")
+    x = input(">>> ").lower()
+    if x != "x" or x == "x":
+        print(f"{v_names['elder']} As a reward. You are free now!")
+# this is the enemy area
+
+
 def enemy_atk():
-    brak = random.randrange(50, 130)
+    brak = random.randrange(100, 230)
     attack = [30, brak]
     result = random.choices(attack)
     return result
@@ -149,7 +242,8 @@ def enemy_001():
     if enemies["flying_coconuts"] == 0:
         print("You've won!")
     player_status["health"] -= outcome
-    print("You're health", player_status["health"])
+    print("You're health", player_status["health"],
+          "Bullets", player_status["bullets"])
 
 
 def enemy_002():
@@ -163,7 +257,8 @@ def enemy_002():
     if enemies["crawling_snakes"] == 0:
         print("You've won!")
     player_status["health"] -= outcome
-    print("You're health", player_status["health"])
+    print("You're health", player_status["health"],
+          "Bullets", player_status["bullets"])
 
 
 def enemy_003():
@@ -177,7 +272,8 @@ def enemy_003():
     if enemies["four_legged_bird"] == 0:
         print("You've won!")
     player_status["health"] -= outcome
-    print("You're health", player_status["health"])
+    print("You're health", player_status["health"],
+          "Bullets", player_status["bullets"])
 
 
 def enemy_004():
@@ -191,21 +287,23 @@ def enemy_004():
     if enemies["humongous_centipede"] == 0:
         print("You've won!")
     player_status["health"] -= outcome
-    print("You're health", player_status["health"])
+    print("You're health", player_status["health"],
+          "Bullets", player_status["bullets"])
 
 
 def enemy_005():
     x = input("Press x to attack:\n").lower
     if not x or x:
-        if player_status["bullets"] < 10:
+        if player_status["bullets"] < 4:
             print("You've lost!")
-        elif player_status["bullets"] >= 10:
-            player_status["bullets"] -= 10
+        elif player_status["bullets"] >= 4:
+            player_status["bullets"] -= 4
             enemies["howling_corns"] -= 500
     if enemies["howling_corns"] == 0:
         print("You've won!")
     player_status["health"] -= outcome
-    print("You're health", player_status["health"])
+    print("You're health", player_status["health"],
+          "Bullets", player_status["bullets"])
 
 
 # def enemy_001():
@@ -260,15 +358,30 @@ def store():
 
 
 # this is the execution area
-# convo_001()
-# convo_002()
-# convo_003()
-# restult_004 = convo_004()
-# convo_005(restult_004)
-# convo_006()
-# store()
-# convo_007()
+convo_001()
+convo_002()
+convo_003()
+restult_004 = convo_004()
+convo_005(restult_004)
+convo_006()
+store()
+convo_007()
 enemy_001()
+convo_008()
+store()
+enemy_002()
+convo_009()
+store()
+enemy_003()
+convo_010()
+store()
+enemy_004()
+convo_011()
+store()
+enemy_005()
+convo_012()
+convo_013()
+
 
 # NOTE: go in a linear pattern, [choices matters] not anymore
 
@@ -276,5 +389,8 @@ enemy_001()
 WHAT I'VE LEARNED:
 
 # def fuction will reset the parameters when you call the arguement.
-#
+# if a parameter have multiple strings or integers separated with commas then it will default with tuples.
+# when printing a parameter with a list, tuple, sets and or dictionary. you can use the slice method to [0] next
+to the parameter to pick one of the list. if instead printing the parameter itself, it would result into having
+brackets to specify the type of a data group.
 """
